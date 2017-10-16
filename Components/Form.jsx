@@ -77,7 +77,7 @@ class BankForm extends React.Component {
   	}
 
 	isEnable = () => {
-		/*return !(
+		return !(
 				this.state.lastNameState &&
 				this.state.firstNameState &&
 				this.state.phnNumberState &&
@@ -85,8 +85,8 @@ class BankForm extends React.Component {
 				this.state.peselState &&
 				this.state.secondSlider &&
 				this.state.controlledDate
-			)*/
-			return false;
+			);
+			
 	}
 
 	handleSubmit = (e) => {
