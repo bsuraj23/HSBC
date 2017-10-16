@@ -15,18 +15,19 @@ class PrintPreview extends React.Component {
 	}
 
 	render(){
+		let storedData = this.props.data.data;
 		return(
 				<div id ="printPage">
 		
 				<MuiThemeProvider>				
 					<List>
-				      <ListItem primaryText={this.props.data.data.firstName} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={this.props.data.data.lastName} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={this.props.data.data.phnNumber} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={this.props.data.data.email} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={this.props.data.data.nip} leftIcon={<ActionGrade />} />				      
-				      <ListItem primaryText={this.props.data.data.pesel} leftIcon={<ActionGrade />} />				      
-				      <ListItem primaryText={this.props.data.data.secondSlider} leftIcon={<ActionGrade />} />				      
+				      <ListItem primaryText={storedData.firstName} leftIcon={<ActionGrade />} />
+				      <ListItem primaryText={storedData.lastName} leftIcon={<ActionGrade />} />
+				      <ListItem primaryText={storedData.phnNumber} leftIcon={<ActionGrade />} />
+				      <ListItem primaryText={storedData.email} leftIcon={<ActionGrade />} />
+				      <ListItem primaryText={storedData.nip} leftIcon={<ActionGrade />} />				      
+				      <ListItem primaryText={storedData.pesel} leftIcon={<ActionGrade />} />				      
+				      <ListItem primaryText={storedData.secondSlider} leftIcon={<ActionGrade />} />				      
 				    </List>
 				    </MuiThemeProvider>
 				    <p>
