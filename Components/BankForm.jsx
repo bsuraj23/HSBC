@@ -1,3 +1,4 @@
+//importing all modules required.
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -18,6 +19,8 @@ class BankForm extends React.Component {
 		}		
 	}
 
+	//Function will be sent to child component as a prop to determine 
+	//if submit button is clicked or not.
 	onSubmit = (value) => {
 		this.setState({
 			submit: value

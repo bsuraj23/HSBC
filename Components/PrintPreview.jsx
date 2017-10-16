@@ -1,3 +1,4 @@
+//importing all modules required.
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -8,7 +9,7 @@ import * as actions  from '../Actions';
 
 class PrintPreview extends React.Component {
 	
-
+	//This will handle the click event of Print Button.
 	handlePrintDiv = () => {	 
 	 window.print();
 	}
@@ -17,18 +18,17 @@ class PrintPreview extends React.Component {
 		let storedData = this.props.data.data;
 		return(
 				<div id ="printPage">
-		
-				<MuiThemeProvider>				
-					<List>
-				      <ListItem primaryText={storedData.firstName} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={storedData.lastName} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={storedData.phnNumber} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={storedData.email} leftIcon={<ActionGrade />} />
-				      <ListItem primaryText={storedData.nip} leftIcon={<ActionGrade />} />				      
-				      <ListItem primaryText={storedData.pesel} leftIcon={<ActionGrade />} />				      
-				      <ListItem primaryText={storedData.secondSlider} leftIcon={<ActionGrade />} />				      
-				    </List>
-				    </MuiThemeProvider>
+					<MuiThemeProvider>				
+						<List>
+					      <ListItem primaryText={storedData.firstName} leftIcon={<ActionGrade />} />
+					      <ListItem primaryText={storedData.lastName} leftIcon={<ActionGrade />} />
+					      <ListItem primaryText={storedData.phnNumber} leftIcon={<ActionGrade />} />
+					      <ListItem primaryText={storedData.email} leftIcon={<ActionGrade />} />
+					      <ListItem primaryText={storedData.nip} leftIcon={<ActionGrade />} />				      
+					      <ListItem primaryText={storedData.pesel} leftIcon={<ActionGrade />} />				      
+					      <ListItem primaryText={storedData.secondSlider} leftIcon={<ActionGrade />} />				      
+					    </List>
+					 </MuiThemeProvider>
 				    <p>
 	    				<div>	    			
 	    					<button onClick={this.handlePrintDiv}>Print</button>

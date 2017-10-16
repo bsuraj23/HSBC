@@ -1,3 +1,4 @@
+//importing all modules required.
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import {orange500, blue500} from 'material-ui/styles/colors';
@@ -20,6 +21,7 @@ import PrintPreview from './PrintPreview.jsx';
 class BankForm extends React.Component {
 	constructor(props) {
 		super(props);
+		//initialising State
 		this.state ={
 			firstName: "",
 			firstNameState: true,
@@ -33,7 +35,7 @@ class BankForm extends React.Component {
 		}		
 	}
 
-
+	//Function will run on every change event of every input field
 	updateField = (event) => {
 		let target = event.target;
 		let name = target.name;
@@ -42,40 +44,54 @@ class BankForm extends React.Component {
 		this.validate(name,value);		
 	}
 
+	//This function will validate input on every change event of input fields.
 	validate = (name,value) => {
+		//validation for names
 		if (name === "firstName" || name === "lastName") {
 			let regex = /^[a-zA-Z]+$/;			
 			let result = regex.test(value);
 			this.setState({[name+"State"] : result});
-		} else if (name === "email") {
+		} 
+		//validation for e-mail
+		else if (name === "email") {
 			let regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			let result = regex.test(value);
 			this.setState({[name+"State"] : result});
-		} else if (name === "phnNumber") {
+		} 
+		//validation for phone number
+		else if (name === "phnNumber") {
 			let regex = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
 			let result = regex.test(value);
 			this.setState({[name+"State"] : result});
-		} else if (name === "pesel") {
+		} 
+		//validation for PESEL Number
+		else if (name === "pesel") {
 			let regex = /[0-9]{4}[0-3]{1}[0-9}{1}[0-9]{5}/;
 			let result = regex.test(value);
 			this.setState({[name+"State"] : result});			
-		} else if (name === "nip") {
+		} 
+		//validation for NIP Number
+		else if (name === "nip") {
 			let regex = /^((\d{3}[- ]\d{3}[- ]\d{2}[- ]\d{2})|(\d{3}[- ]\d{2}[- ]\d{2}[- ]\d{3}))$/;
 			let result = regex.test(value);
 			this.setState({[name+"State"] : result});			
 		}
 	}
 
-	handleSecondSlider = (event, value) => {
+	//This function will handle change event for Slider and will set its value in state.
+	handleSlider = (event, value) => {
     	this.setState({secondSlider: value});
  	}
 
- 	handleChange = (event, date) => {
+ 	//This function will handle change event for Date Picker and will set its value in state.
+ 	handleDateChange = (event, date) => {
 	    this.setState({
 	      controlledDate: date,
 	   });
   	}
 
+  	//This function will decide weather or not enable the submit button.
+  	//The button will be anabled only if all the input fields are filled.
 	isEnable = () => {
 		return !(
 				this.state.lastNameState &&
@@ -89,6 +105,7 @@ class BankForm extends React.Component {
 			
 	}
 
+	//This function handles the submit action.
 	handleSubmit = (e) => {		
 		let payload = {
 			firstName: this.state.firstName,
@@ -100,11 +117,16 @@ class BankForm extends React.Component {
 			email: this.state.email,
 			controlledDate: this.state.controlledDate
 		}
+
+		//Dispatching Action
 		this.props.actions.AddData(payload);
+		//Two way function binding. Sending data to parent component.
 		this.props.onSubmit(true);
+		//Calling reset function.
 		this.handleReset();		
 	}
 
+	//This will reset the form.
 	handleReset = () => {
 		this.setState ({
 			firstName: '',
@@ -117,11 +139,6 @@ class BankForm extends React.Component {
 			controlledDate: ''
 		});
 	}
-
-	handleHey = () =>{
-		window.print();
-	}
-
 
 	render(){
 		return(
@@ -191,7 +208,7 @@ class BankForm extends React.Component {
 					          max={100000}
 					          step={500}
 					          value={this.state.secondSlider}
-					          onChange={this.handleSecondSlider}
+					          onChange={this.handleSlider}
 					          style= {styles.slider}
 					        />
 					        <NumberFormat value={this.state.secondSlider} displayType={'text'} thousandSeparator={true} prefix={'$'} />
@@ -203,7 +220,7 @@ class BankForm extends React.Component {
 		     					 name="pesel"
 		     					 errorText={ this.state.peselState ? "" : "Please enter 10 digit number"}
 		     					 errorStyle={styles.errorStyle}
-		     					 maxLength="10"
+		     					 maxLength="11"
 		     					 floatingLabelText="Pesel Number (eg .44051401458)"
       							 floatingLabelFixed={true}
       							 value={this.state.pesel}		     					 
@@ -228,7 +245,7 @@ class BankForm extends React.Component {
 						        hintText="Date of Birth"
 						        name="date"
 						        value={this.state.controlledDate}
-						        onChange={this.handleChange}
+						        onChange={this.handleDateChange}
 						        floatingLabelText="Date of Birth"
 						        floatingLabelFixed={true}
 						        autoOk={true}
