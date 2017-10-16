@@ -59,24 +59,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(BankForm);
 
 
 const styles = {
-  errorStyle: {
-    float: "left"
-  },
 	paper: {
 	  height: '100%',
       width: '35%',
 	  marginLeft: '450px',
 	  textAlign: 'center',
 	  display: 'inline-block',
-	},
-	slider: {
-		userSelect: 'none',
-	    cursor: 'default',
-	    height: '18px',
-	    width: '100%',
-	    position: 'relative',
-	    marginTop: '24px',
-	    marginBottom: '5px'
 	}
 };
 const muiTheme = getMuiTheme({
