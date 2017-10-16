@@ -5,7 +5,6 @@ import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as actions  from '../Actions';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class PrintPreview extends React.Component {
 	
