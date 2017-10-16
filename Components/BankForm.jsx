@@ -1,16 +1,8 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import {orange500, blue500} from 'material-ui/styles/colors';
-import TiTick from 'react-icons/lib/ti/tick';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import Slider from 'material-ui/Slider';
-import NumberFormat from 'react-number-format';
-import DatePicker from 'material-ui/DatePicker';
-import RaisedButton from 'material-ui/RaisedButton';
-import {cyan500} from 'material-ui/styles/colors';
 import * as actions  from '../Actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
