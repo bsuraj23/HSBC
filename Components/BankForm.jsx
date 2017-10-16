@@ -4,9 +4,6 @@ import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import * as actions  from '../Actions';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import PrintPreview from './PrintPreview.jsx';
 import Form from './Form.jsx';
 import {cyan500} from 'material-ui/styles/colors';
@@ -46,20 +43,7 @@ class BankForm extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		data: state.data	
-	};
-}
-
-
-function mapDispatchToProps(dispatch) {
-	return {
-		actions: bindActionCreators(actions, dispatch)
-	};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BankForm); 
+export default BankForm; 
 
 
 const styles = {

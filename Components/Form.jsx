@@ -91,7 +91,7 @@ class BankForm extends React.Component {
   	}
 
   	//This function will decide weather or not enable the submit button.
-  	//The button will be anabled only if all the input fields are filled.
+  	//The button will be enabled only if all the input fields are filled and valid.
 	isEnable = () => {
 		return !(
 				this.state.lastNameState &&
