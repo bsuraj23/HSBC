@@ -18,7 +18,7 @@ import {bindActionCreators} from 'redux';
 import PrintPreview from './PrintPreview.jsx';
 
 
-class BankForm extends React.Component {
+class Form extends React.Component {
 	constructor(props) {
 		super(props);
 		//initialising State
@@ -265,20 +265,22 @@ class BankForm extends React.Component {
 	}
 }
 
+//This will map store state to props
 function mapStateToProps(state) {
 	return {
 		data: state.data	
 	};
 }
 
-
+//This will map dispatch to props
 function mapDispatchToProps(dispatch) {
 	return {
 		actions: bindActionCreators(actions, dispatch)
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BankForm); 
+//This will connect the component to redux and store.
+export default connect(mapStateToProps, mapDispatchToProps)(Form); 
 
 
 const styles = {

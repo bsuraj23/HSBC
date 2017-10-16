@@ -8,6 +8,7 @@ import PrintPreview from './PrintPreview.jsx';
 import Form from './Form.jsx';
 import {cyan500} from 'material-ui/styles/colors';
 
+//Container Component
 class BankForm extends React.Component {
 	constructor(props) {
 		super(props);

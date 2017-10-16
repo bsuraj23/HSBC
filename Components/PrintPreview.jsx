@@ -7,12 +7,8 @@ import ActionGrade from 'material-ui/svg-icons/action/grade';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as actions  from '../Actions';
 
+//This component will print the list of all the data entered by user to print.
 class PrintPreview extends React.Component {
-	
-	//This will handle the click event of Print Button.
-	handlePrintDiv = () => {	 
-	 window.print();
-	}
 
 	render(){
 		let storedData = this.props.data.data;
@@ -31,7 +27,7 @@ class PrintPreview extends React.Component {
 					 </MuiThemeProvider>
 				    <p>
 	    				<div>	    			
-	    					<button onClick={this.handlePrintDiv}>Print</button>
+	    					<button onClick={() => window.print()}>Print</button>
 	    				</div>
 	    			</p>
 				</div>
@@ -39,17 +35,19 @@ class PrintPreview extends React.Component {
 	}
 }
 
+//This will map store state to props
 function mapStateToProps(state) {
 	return {
 		data: state.data	
 	};
 }
 
-
+//This will map dispatch to props
 function mapDispatchToProps(dispatch) {
 	return {
 		actions: bindActionCreators(actions, dispatch)
 	};
 }
 
+//This will connect the component to redux and store.
 export default connect(mapStateToProps, mapDispatchToProps)(PrintPreview); 
