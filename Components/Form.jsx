@@ -89,10 +89,7 @@ class BankForm extends React.Component {
 			
 	}
 
-	handleSubmit = (e) => {
-		/*this.setState({
-			submit: true
-		});*/
+	handleSubmit = (e) => {		
 		let payload = {
 			firstName: this.state.firstName,
 			lastName: this.state.lastName,
